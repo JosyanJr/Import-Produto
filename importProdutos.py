@@ -11,7 +11,7 @@ def gerar_sql_inserts(df):
     for index, row in df.iterrows():
         id = row['proid']
         desc = row['proDescricao'][:50]
-        insert = f"INSERT INTO produto(proid, proDescricao, proDescPdv, proUsaM2, proUsaPpauta, proControlado) VALUES({id}, '{desc}', '{desc[:29]}', 0, 0, 0) go"
+        insert = f"INSERT INTO produto(proid, proDescricao, proDescPdv, proGrupo, proSubGrupo, proUsaM2, proUsaPpauta, proControlado) VALUES({id}, '{desc}', '{desc[:29]}', {row['proGrupo']}, {row['proSubGrupo']}, 0, 0, 0) go"
         inserts.append(insert)
     inserts.append('SET IDENTITY_INSERT produto OFF go')
 
@@ -39,6 +39,9 @@ def salvar_sql_inserts(arquivo, inserts):
 if __name__ == "__main__":
     # Carregar os dados do Excel
     df = pd.read_excel('dadosProdutos.xlsx', sheet_name='Plan1')
+
+    # Substituir campos vazio por 'Null'
+    df = df.fillna('Null')
 
     # Gerar os inserts ao executar
     inserts = gerar_sql_inserts(df)
