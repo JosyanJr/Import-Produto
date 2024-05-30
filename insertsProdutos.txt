@@ -1,0 +1,15 @@
+EXEC SP_MSFOREACHTABLE "ALTER TABLE ? NOCHECK CONSTRAINT ALL" GO
+SET IDENTITY_INSERT produto ON GO
+INSERT INTO produto(proid, proDescricao, proDescPdv, proUsaM2, proUsaPpauta, proControlado) VALUES(3979, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 0, 0, 0) go
+INSERT INTO produto(proid, proDescricao, proDescPdv, proUsaM2, proUsaPpauta, proControlado) VALUES(3980, 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa50', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 0, 0, 0) go
+INSERT INTO produto(proid, proDescricao, proDescPdv, proUsaM2, proUsaPpauta, proControlado) VALUES(3981, 'TesteDeCadastro3', 'TesteDeCadastro3', 0, 0, 0) go
+INSERT INTO produto(proid, proDescricao, proDescPdv, proUsaM2, proUsaPpauta, proControlado) VALUES(3982, 'TesteDeCadastro3', 'TesteDeCadastro3', 0, 0, 0) go
+SET IDENTITY_INSERT produto OFF go
+SET IDENTITY_INSERT produto_empresa ON GO
+insert into produto_empresa(empid, preid, proid, proCodigo, ProCusto, ProVenda, ProUn, ProUnTrib, proUnComercialId, proUnTribId, proCodCst2, proCodCSOSN, proListaInvent, proEstoqueMin) VALUES(1, 3979, 3979, 0, 110, 160, 'UN', 'UN', 1, 1, '0', 102, '-1', 1) go
+insert into produto_empresa(empid, preid, proid, proCodigo, ProCusto, ProVenda, ProUn, ProUnTrib, proUnComercialId, proUnTribId, proCodCst2, proCodCSOSN, proListaInvent, proEstoqueMin) VALUES(1, 3980, 3980, 0, 110, 160, 'UN', 'UN', 1, 1, '0', 102, '-1', 1) go
+insert into produto_empresa(empid, preid, proid, proCodigo, ProCusto, ProVenda, ProUn, ProUnTrib, proUnComercialId, proUnTribId, proCodCst2, proCodCSOSN, proListaInvent, proEstoqueMin) VALUES(1, 3981, 3981, 0, 110, 160, 'UN', 'UN', 1, 1, '0', 102, '-1', 1) go
+insert into produto_empresa(empid, preid, proid, proCodigo, ProCusto, ProVenda, ProUn, ProUnTrib, proUnComercialId, proUnTribId, proCodCst2, proCodCSOSN, proListaInvent, proEstoqueMin) VALUES(1, 3982, 3982, 0, 110, 160, 'UN', 'UN', 1, 1, '0', 102, '-1', 1) go
+SET IDENTITY_INSERT produto_empresa OFF GO
+SET IDENTITY_INSERT fabricante OFF go
+EXEC SP_MSFOREACHTABLE "ALTER TABLE ? CHECK CONSTRAINT ALL" GO
