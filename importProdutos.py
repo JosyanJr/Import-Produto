@@ -12,7 +12,6 @@ def obter_diretorio_base():
 diretorio_base = obter_diretorio_base()
 
 def formatar_valor(valor):
-    """Formata o valor para remover '.0' se for float."""
     if isinstance(valor, float) and valor.is_integer():
         return str(int(valor))
     return str(valor)
